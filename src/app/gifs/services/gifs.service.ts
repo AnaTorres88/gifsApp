@@ -4,11 +4,13 @@ import { SearchGifsResponse, Gif } from '../interface/gifs.interface';
 @Injectable({
   providedIn: 'root'
 })
+
 export class GifsService {
   private apiKey: string = 'fO0D6I1oyyto2T0Ox6vBBxspAnnJ2rYc';
   private _historial: string[] = [];
   public resultados: Gif[] = [];
   private servicioUrl: string = 'https://api.giphy.com/v1/gifs';
+
   constructor(private http: HttpClient) { 
     // executes only 1 time when the service is called. Singleton
     this._historial = JSON.parse(localStorage.getItem('historial')!) || []; // ! is a null operator
@@ -28,7 +30,7 @@ export class GifsService {
     .set('api_key', this.apiKey)
     .set('limit', '10')
     .set('q', query);
-    return this.http.get<SearchGifsResponse>(`${this.servicioUrl}/search`, {params})
+    return this.http.get<SearchGifsResponse>(`${this.servicioUrl}/search`, {params});
   }
   
   buscarGifs(query: string = '') {

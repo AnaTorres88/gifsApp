@@ -11,9 +11,11 @@ export class GifsPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   mensaje(): string {
     return 'HOLA!!!';
   }
+
   apareceMensaje() {
     setTimeout(() => {
       this.mensaje();

@@ -32,6 +32,11 @@ describe('SidebarComponent', () => {
   });
 
   it('Should call gif buscarGifs method from GifService', () => {
+    /* REFERENCIA, MÉTODO:
+      buscar(termino: string) {
+        this.gifService.buscarGifs(termino);
+      } 
+    */
     component.buscar('termino');
     expect(gifServiceSpy.buscarGifs).toHaveBeenCalled();
     expect(gifServiceSpy.buscarGifs).toHaveBeenCalledWith('termino');

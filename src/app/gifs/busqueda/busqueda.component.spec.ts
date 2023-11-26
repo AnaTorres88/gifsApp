@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BusquedaComponent } from './busqueda.component';
-import { GifsService } from '../services/gifs.service';
+import { GifsService } from '../services/gifs.service'; // importar GifsService
 describe('BusquedaComponent', () => {
   let component: BusquedaComponent;
   let fixture: ComponentFixture<BusquedaComponent>;
-  let gifServiceSpy;
+  let gifServiceSpy: jasmine.SpyObj<GifsService>; // declarar variable para spy
+  
   beforeEach(async () => {
     gifServiceSpy = jasmine.createSpyObj('GifsService', ['buscarGifs']); // Espiando el servicio, método buscarGifs
     await TestBed.configureTestingModule({
@@ -35,7 +36,7 @@ describe('BusquedaComponent', () => {
     // Antes de cada test, obtenemos el elemento input 
     // Extraemos el valor de ese input
     // llamamos al método buscar
-    beforeEach(()=> {
+    beforeEach(() => {
       input = HTMLInputElement = fixture.debugElement.nativeElement.querySelector('.form-control');
       txtBuscar = spyOnProperty(component.txtBuscar.nativeElement, 'value');
       spyOn(component, 'buscar').and.callThrough(); // callThrough(). Llama al espía y delega la implementación del método.

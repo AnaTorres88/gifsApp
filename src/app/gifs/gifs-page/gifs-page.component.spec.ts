@@ -18,15 +18,17 @@ describe('GifsPageComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   describe('test timeout', () => {
     it('Debe ejecutar #mensaje después de 300ms', fakeAsync(() => {
       spyOn(component, 'mensaje'); // espiamos el callback
       component.apareceMensaje();
       fixture.detectChanges();
-      tick(299); // 200ms
+      tick(299); // 299ms
       expect(component.mensaje).not.toHaveBeenCalled(); // Aún no ha pasado el tiempo para llamar al callback
       tick(1); // 1ms más
       flush(); // Simulamos pasar el tiempo

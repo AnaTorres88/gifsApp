@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WindowService } from '../core/services/window-service.service';
-
+/* LLamando a página externa */
 @Component({
   selector: 'app-call-page',
   templateUrl: './call-page.component.html',

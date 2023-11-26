@@ -13,6 +13,7 @@ export class BusquedaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  /* Unit testing tomar valor de un input y llamar a servicio */
 
   buscar() {
     const valor = this.txtBuscar.nativeElement.value;
